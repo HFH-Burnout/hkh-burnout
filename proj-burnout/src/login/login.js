@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import FlatButton from 'material-ui/FlatButton';
-// import TextField from 'material-ui/TextField';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FlatButton from 'material-ui/FlatButton';
+import TextField from 'material-ui/TextField';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-// import logo from '../../assets/images/bwlogo.png';
 
 const style = {
   margin: 0,
-  backgroundColor: '#f7b748',
+  backgroundColor: '#F5F5F5',
   position: 'relative',
 };
 class Login extends Component {
@@ -27,10 +26,10 @@ class Login extends Component {
     axios.post('/login', loginObj)
     .then((response) => {
       if (response.status === 200) {
-        console.log('sign up successful');
-        this.props.history.push('/timeline');
+        // console.log('sign up successful');
+        // this.props.history.push('/timeline');
       } else if (response.status === 204) {
-        this.props.history.push('/login');
+        // this.props.history.push('/login');
       }
     })
     .catch((error) => {
@@ -40,12 +39,9 @@ class Login extends Component {
   render() {
     return (
       <div>
-
-        LOGIN
-        {/* <MuiThemeProvider>
+        <MuiThemeProvider>
           <div>
-            <img src={logo} alt="logo" style={{ width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} />
-            <br />
+          LOGIN
             <div className="login" >
               <TextField
                 hintText="Enter your Username"
@@ -65,7 +61,7 @@ class Login extends Component {
               <FlatButton label="Login" style={style} fullWidth onClick={event => this.handleClick(event)} />
             </div>
           </div>
-        </MuiThemeProvider> */}
+        </MuiThemeProvider>
       </div>
     );
   }

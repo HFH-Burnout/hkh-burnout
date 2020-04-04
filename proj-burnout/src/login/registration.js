@@ -1,34 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { ReactTypeformEmbed } from 'react-typeform-embed';
 
-class Registration extends Component {
-    constructor(props) {
-      super(props);
-      this.state = { scroll: false };
-    }
-    render() {
-      return (
-        <div>
-            Registration
-            
-          {/* <MuiThemeProvider>
-            <div>
-              <Paper style={style} zDepth={1}>
-                <BottomNavigation style={{ backgroundColor: '#221aba' }}>
-                  <BottomNavigationItem
-                    icon={fileDownload}
-                    containerElement={<Link to="/timeline" />}
-                  />
-                  <BottomNavigationItem
-                    icon={nearbyIcon}
-                    containerElement={<Link to="/map" />}
-                  />
-                </BottomNavigation>
-              </Paper>
-            </div>
-          </MuiThemeProvider> */}
-        </div>
-      );
-    }
+const Registration = () => {
+  return (
+   <ReactTypeformEmbed url="https://project-burn-out.typeform.com/to/u0uZtb" />
+  );
 }
 
 export default Registration;
