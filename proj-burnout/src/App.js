@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
+// import { ReactTypeformEmbed } from 'react-typeform-embed';
+import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Login from './login/login';
+import Registration from './login/registration';
+import Results from './dailyMeasure/results';
+import Survey from './dailyMeasure/survey';
+
+// function App() {
+//   return (
+//    <ReactTypeformEmbed url="https://demo.typeform.com/to/njdbt5" />
+//   );
+// }
+
+// export default App;
+
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Login} />
+      <Route path="/signup" component={Registration} />
+      <Route path="/survey" component={Survey} />
+      <Route path="/results" component={Results} />
+    </Switch>
+  </BrowserRouter>  
+);
 
 export default App;
