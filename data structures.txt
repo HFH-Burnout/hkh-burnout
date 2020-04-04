@@ -1,0 +1,111 @@
+INTERNAL STRUCTURE FOR HAT
+HEAD:
+pb-1-dev/
+PROFILE:
+pb-1-dev/profile
+JSON: {
+		name: string,
+		DOB: number,
+		Country of Residence: string,
+		Gender: string (Man, Woman, custom string, N/D,
+		Occupation: string (Nurse, MD, custom string),
+		Experience: number (years)
+	}
+PREDICTORS:
+pb-1-dev/predictors/stable
+JSON: {
+		caregiving with childcare: boolean,
+		caregiving with eldercare: boolean,
+		caregiving other: string,
+		Difficulty falling asleep: boolean, 
+		Diagnosed sleeping disorder,
+		Psychological empowerment: number,
+		Structural empowerment: number,
+		Resilience assessment: (all validated 1-5) {
+			I look for creative ways to alter difficult situations: number
+			Regardless of what happens to me, I believe I can control my reaction to it.: number
+			I believe that I can grow in positive ways by dealing with difficult situations.: number
+			I actively look for ways to replace the losses I encounter in life: number
+		}
+	}
+pb-1-dev/predictors/changing
+JSON: {
+	Date: date,
+	Night Duties: bool,
+	Noisy Working Environment: bool,
+	felt very stressed: bool,
+	had more work than normal: bool,
+	felt supported by friends and family: bool,
+	felt supported by coworkers: bool,
+	had difficulties maintaining work-life balance: bool,
+	had to hide feelings: bool,
+	had an interpersonal conflict: bool,
+	Single Item Burnout Assessment:{
+		response: number,
+	}
+}
+CBI:
+pb-1-dev/predictors/CBI
+JSON: {
+	date: <now>,
+	CBI:{
+		PB: {
+			PB1:typeformAnswer,
+			PB2:typeformAnswer,
+			PB3:typeformAnswer,
+			PB4:typeformAnswer,
+			PB5:typeformAnswer,
+			PB6:typeformAnswer,
+		},
+		WB: {
+			WB1:typeformAnswer,
+			WB2:typeformAnswer,
+			WB3:typeformAnswer,
+			WB4:typeformAnswer,
+			WB5:typeformAnswer,
+			WB6:typeformAnswer,
+			WB7:typeformAnswer,
+		},
+		CB: {
+			CB1:typeformAnswer,
+			CB2:typeformAnswer,
+			CB3:typeformAnswer,
+			CB4:typeformAnswer,
+			CB5:typeformAnswer,
+			CB6:typeformAnswer,
+		},
+		Aggregate: func(calculateCBI) //aggregate from above data; created at entry-time to user's HAT
+	}
+}
+
+ANALYTICS PLATFORM:
+static indicators:
+response object:
+data entry ID:
+
+CBI Schema
+Date taken:
+Personal Burnout (PB)
+PB-1: How often do you feel tired?
+PB-2: How often are you physically exhausted?
+PB-3: How often are you emotionally exhausted?
+PB-4: How often do you think "I can't take it anymore?"
+PB-5: 
+PB-6: 
+
+Work-Related Burnout (WB)
+WB-1: 
+WB-2: 
+WB-3: 
+WB-4: 
+WB-5: 
+WB-6: 
+WB-7: 
+
+Client-Related Burnout (CB)
+CB-1: 
+CB-2: 
+CB-3: 
+CB-4: 
+CB-5: 
+CB-6: 
