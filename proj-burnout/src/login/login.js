@@ -10,6 +10,7 @@ const style = {
   backgroundColor: '#F5F5F5',
   position: 'relative',
 };
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +19,7 @@ class Login extends Component {
       password: '',
     };
   }
+
   handleClick() {
     const loginObj = {
       username: this.state.username,
