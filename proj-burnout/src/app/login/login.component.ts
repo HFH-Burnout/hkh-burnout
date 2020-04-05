@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     const url = hat.auth().generateHatLoginUrl(hatDomain, this.appId, this.redirect, this.fallback);    
       console.log(url, 'url');
     if (url) {
-      window.location.href = url;
+      window.location.href = `https://${url}`;
     }   
   }
 
