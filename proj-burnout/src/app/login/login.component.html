@@ -1,6 +1,15 @@
-<p>login works!</p>
+<div class="splash-page">
+    <h1>Login</h1>
 
-<form [formGroup]="profileForm">
+    <!-- <form> -->
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" [formControl]="firstName">
+      </mat-form-field> -->
+    <!-- </form> -->
+  <form [formGroup]="profileForm">
     <input type="text" formControlName="firstName"> 
     <button (click)="fetchHatLogin()">Submit</button>
-</form>
+  </form>
+<button (click)="fetchHatLogin()">Sign Up</button>
+</div>

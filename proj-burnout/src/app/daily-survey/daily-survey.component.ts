@@ -3,11 +3,11 @@ import { TypeFormService } from '../../services/typeform.service';
 import * as typeformEmbed from '@typeform/embed';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  selector: 'app-daily-survey',
+  templateUrl: './daily-survey.component.html',
+  styleUrls: ['./daily-survey.component.scss']
 })
-export class RegistrationComponent implements OnInit {
+export class DailySurveyComponent implements OnInit {
 
   constructor(private typeFormService: TypeFormService) { }
 
@@ -18,11 +18,10 @@ export class RegistrationComponent implements OnInit {
   submitTypeform(): void {
     this.typeFormService.getTypeFormData()
       .subscribe(data => console.log(data, 'submitted form'))
-  
   }
 
   renderTypeForm() {
-    const embedElement = document.querySelector('.typeform-registration')
+    const embedElement = document.querySelector('.typeform-daily-survey')
 
     typeformEmbed.makeWidget(
       embedElement,
