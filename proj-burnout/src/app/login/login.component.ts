@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HatClient } from "@dataswift/hat-js";
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +9,6 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   firstName = new FormControl('')
-  // router: Router;
   appId = 'pb-1-dev';
   redirect = 'http://127.0.0.1:4200/profile'; //these are testing values
   fallback = 'http://127.0.0.1:4200/whoops'; //please change them

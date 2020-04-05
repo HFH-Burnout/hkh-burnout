@@ -30,11 +30,11 @@ JSON: {
 	}
 project-burnout/predictors/changing
 JSON: {
-	protectors:{
+	plus:{
 		coworker support: bool,
 		nonwork support: bool,
 	},
-	pushers:{
+	minus:{
 		Night Duties: bool,
 		Noisy Working Environment: bool,
 		Very Stressed: bool,
