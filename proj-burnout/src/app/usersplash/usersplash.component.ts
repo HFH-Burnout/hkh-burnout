@@ -17,4 +17,8 @@ export class UsersplashComponent implements OnInit {
     console.log(queryString);
   }
 
+  goToRegistrationSurvey(){
+    window.location.href =  '/register'
+  }
+
 }

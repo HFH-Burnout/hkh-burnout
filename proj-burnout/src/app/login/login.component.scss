@@ -1,28 +1,98 @@
 .splash-page {
   background-color: #E5E5E5;
 	height: 100vh;
-	width: auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-	position: absolute;
-	width: 262px;
-	height: 128px;
-	left: 32px;
-	top: 156px;
+.splash-container {
 
-	font-family: Lora;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 20px;
-	line-height: 160%;
-	/* or 32px */
-	text-align: center;
-	letter-spacing: 0.05em;
+  h1 {
+    flex: 0 0 120px;
+    width: 300px;
+    height: 128px;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 160%;
+    letter-spacing: 0.05em;
+    color: #478985;
+  }
 
-	color: #478985;
+  input[type=text] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #478985;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 20px;
+  }
+
+  .login-btn {
+    padding: 12px 20px;
+  }
+
+  .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .submit-btn {
+    width: 80%;
+    border: 1px solid #478985;
+    background-color: #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #478985;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+    margin: 8px 0;
+    padding: 8px 16px;
+    display: inline-block;
+    vertical-align: middle;
+
+    img {
+      height: 27px;
+      width: auto;
+    }
+  }
+
+  .btn-container {
+    margin-left: 20%;
+    margin-bottom: 10px;
+  }
+
+  h5 {
+    flex: 0 0 120px;
+    text-align: center;
+    font-family: Lora;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 160%;
+    letter-spacing: 0.05em;
+    color: #478985;
+  }
+
+  .register-btn {
+    width: 100%;
+    border: 1px solid #478985;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #478985;
+    padding: 12px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+  }
 }
 
-.text-field {
-	
-}
