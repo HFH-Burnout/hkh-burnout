@@ -20,7 +20,6 @@
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
     "@dataswift/hat-js": "^0.3.0",
-    "jsonwebtoken": "^8.5.1",
     "jwa": "^2.0.0",
     "jws": "^4.0.0",
     "rxjs": "~6.5.4",
