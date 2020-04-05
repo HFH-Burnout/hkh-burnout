@@ -25,7 +25,9 @@ export class LoginComponent implements OnInit {
   }
 
   fetchLoginUrl() {
-    var url=this.hatService.fetchHatLogin(`${this.profileForm.controls['firstName'].value}`);
+    var successURL = 'http://127.0.0.1:4200/register'
+    var failURL = 'http://127.0.0.1:4200/whoops'
+    var url=this.hatService.fetchHatLogin(`${this.profileForm.controls['firstName'].value}`, successURL, failURL);
     if (url) {
       window.location.href = `https://${url}`;
     }

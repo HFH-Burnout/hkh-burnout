@@ -1,7 +1,7 @@
 Notes about data security - depends on the country, investigate how data anonymization can work - the minimal number of steps required to reveal the identity of a person
 
 DATA DISCLAIMER:
-By using <app>, we would like to request access to some of your data. We want to make it very clear that the owner of your data is you.
+By using QoolDown, we would like to request access to some of your data. We want to make it very clear that the owner of your data is you.
 Currently, we use your data to:
 	help you track your burnout state
 	in strictly anonymized form, your data, along with some demographic information will (may? opt-in?) be used to allow for an aggregate measure about how your community is managing burnout
