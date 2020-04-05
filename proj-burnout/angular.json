@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "proj-burnout"
+    }
+  },
+  "defaultProject": "proj-burnout",
+  "cli": {
+    "analytics": false
+  }
 }

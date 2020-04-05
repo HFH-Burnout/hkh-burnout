@@ -6,19 +6,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UsersplashComponent } from './usersplash/usersplash.component';
+import { RegistrationComponent } from './registration/registration.component';
+
+import { TypeFormService } from '../services/typeform.service';
+import { HttpClientModule }from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UsersplashComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TypeFormService,
+  ],
   bootstrap: [AppComponent]
 })
 
