@@ -1,8 +1,8 @@
 INTERNAL STRUCTURE FOR HAT
 HEAD:
-pb-1-dev/
+project-burnout/
 PROFILE:
-pb-1-dev/profile
+project-burnout/profile
 JSON: {
 		name: string,
 		DOB: number,
@@ -12,7 +12,7 @@ JSON: {
 		Experience: number (years)
 	}
 PREDICTORS:
-pb-1-dev/predictors/stable
+project-burnout/predictors/stable
 JSON: {
 		caregiving with childcare: boolean,
 		caregiving with eldercare: boolean,
@@ -28,24 +28,31 @@ JSON: {
 			I actively look for ways to replace the losses I encounter in life: number
 		}
 	}
-pb-1-dev/predictors/changing
+project-burnout/predictors/changing
 JSON: {
-	Date: date,
-	Night Duties: bool,
-	Noisy Working Environment: bool,
-	felt very stressed: bool,
-	had more work than normal: bool,
-	felt supported by friends and family: bool,
-	felt supported by coworkers: bool,
-	had difficulties maintaining work-life balance: bool,
-	had to hide feelings: bool,
-	had an interpersonal conflict: bool,
+	protectors:{
+		coworker support: bool,
+		nonwork support: bool,
+	},
+	pushers:{
+		Night Duties: bool,
+		Noisy Working Environment: bool,
+		Very Stressed: bool,
+		Extra Work: bool,
+		Work-life balance: bool,
+		Hid feelings: bool,
+		Interpersonal conflict: bool,
+	}
+}
+
+project-burnout/predictors/SBA
+JSON: {
 	Single Item Burnout Assessment:{
 		response: number,
 	}
 }
 CBI:
-pb-1-dev/predictors/CBI
+project-burnout/predictors/CBI
 JSON: {
 	date: <now>,
 	CBI:{
@@ -56,6 +63,8 @@ JSON: {
 			PB4:typeformAnswer,
 			PB5:typeformAnswer,
 			PB6:typeformAnswer,
+			PBAvg:generated,
+			PBSum:generated,
 		},
 		WB: {
 			WB1:typeformAnswer,
@@ -65,6 +74,8 @@ JSON: {
 			WB5:typeformAnswer,
 			WB6:typeformAnswer,
 			WB7:typeformAnswer,
+			WBAvg:generated,
+			WBSum:generated,
 		},
 		CB: {
 			CB1:typeformAnswer,
@@ -73,8 +84,14 @@ JSON: {
 			CB4:typeformAnswer,
 			CB5:typeformAnswer,
 			CB6:typeformAnswer,
+			CBAvg:generated,
+			CBSum:generated,
 		},
 		Aggregate: func(calculateCBI) //aggregate from above data; created at entry-time to user's HAT
+		Score: Aggregate/300
+		PBContrib: PBSum/Aggregate
+		WBContrib: WBSum/Aggregate
+		CBContrib: CBSum/Aggregate
 	}
 }
 
@@ -90,22 +107,87 @@ PB-1: How often do you feel tired?
 PB-2: How often are you physically exhausted?
 PB-3: How often are you emotionally exhausted?
 PB-4: How often do you think "I can't take it anymore?"
-PB-5: 
-PB-6: 
+PB-5: How often do you feel worn out?
+PB-6: How often do you feel weak and susceptible to illness?
 
 Work-Related Burnout (WB)
-WB-1: 
-WB-2: 
-WB-3: 
-WB-4: 
-WB-5: 
-WB-6: 
-WB-7: 
+WB-1: Do you ever feel worn out at the end of the working day?
+WB-2: Are you exhausted in the morning at the thought of another day of work?
+WB-3: Do you feel that every working hour is tiring for you?
+WB-4: Do you have enough energy for family and friends during leisure time? (invert scoring)
+WB-5: Is your work emotionally exhausting?
+WB-6: Does your work frustrate you?
+WB-7: Do you feel burnt out because of your work?
 
 Client-Related Burnout (CB)
-CB-1: 
-CB-2: 
-CB-3: 
-CB-4: 
-CB-5: 
-CB-6: 
+CB-1: Do you find it hard to work with clients?
+CB-2: Does it drain your energy to work with clients?
+CB-3: Do you find it fristrating to work with clients?
+CB-4: Do you feel that you give more than you get back when you work with clients?
+CB-5: Are you tired of working with clients?
+CB-6: Do you sometimes wonder how long you will be able to continue working with clients?
+
+How to go from data to chart?
+
+Place API request within webapp (probably using xhr): 
+request = HTTP Get https://{user}.hubofallthings.net/api/v2.6/data/project-burnout/predictors/changing
+headers: 
+	x-auth-token: <user-auth-token>
+	
+// This will return a series of JSON. 
+var target = [request[0].data.object.id, request[1].data.object.id, ... request[13].data.object.id] // for 2 weeks of data
+
+
+
+//MODIFIED HIGHCHARTS.CHART
+Highcharts.chart('container', {
+
+    title: {
+        text: 'Chart Title here!'
+    },
+
+    yAxis: {
+    },
+
+    xAxis: {
+        accessibility: {
+            rangeDescription: 'Last Two Weeks'
+        }
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: request[0].data.object.date //convert to MMDDYYYY
+        }
+    },
+
+    series: [{
+        name: 'Progress',
+        data: []
+    },
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});
