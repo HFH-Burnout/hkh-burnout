@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-{ path: 'profile', component: }];
+{ path: 'profile', component: UsersplashComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
