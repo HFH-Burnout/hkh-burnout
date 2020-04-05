@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
     lastName: new FormControl(''),
   });
   appId = 'pb-1-dev';
-  redirect = 'callback-url';
-  fallback = 'fallback-url';
+  redirect = 'http://127.0.0.1:4200/profile'; //these are testing values
+  fallback = 'http://127.0.0.1:4200/whoops'; //please change them
 
   constructor() {}
 
@@ -38,11 +38,11 @@ export class LoginComponent implements OnInit {
     const hatDomain = `${this.profileForm.controls['firstName'].value}.hubat.net`;
     console.log(hatDomain, 'hatDomain');
     console.log(hat);
-    const url = hat.auth().generateHatLoginUrl(hatDomain, this.appId, this.redirect, this.fallback);    
+    const url = hat.auth().generateHatLoginUrl(hatDomain, this.appId, this.redirect, this.fallback);
       console.log(url, 'url');
     if (url) {
       window.location.href = `https://${url}`;
-    }   
+    }
   }
 
 }

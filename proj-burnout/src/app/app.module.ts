@@ -10,6 +10,7 @@ import { RegistrationComponent } from './registration/registration.component';
 
 import { TypeFormService } from '../services/typeform.service';
 import { HttpClientModule }from '@angular/common/http';
+import { SigninErrorComponent } from './signin-error/signin-error.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule }from '@angular/common/http';
     LoginComponent,
     UsersplashComponent,
     RegistrationComponent,
+    SigninErrorComponent,
   ],
   imports: [
     BrowserModule,
