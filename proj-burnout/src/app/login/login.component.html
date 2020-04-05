@@ -1,6 +1,17 @@
-<p>login works!</p>
 
-<form [formGroup]="profileForm">
-    <input type="text" formControlName="firstName">
-    <button (click)="fetchLoginUrl()">Submit</button>
-</form>
+<div class="splash-page" fxLayout="column">
+  <div fxLayout="column" class="splash-container" fxLayoutAlign="center">
+    <div class="title-container"> 
+      <img src="../../assets/qool-down-logo.png" width="350" height="350"/>
+    </div>
+    <div class="btn-container">
+      <form>
+        <input type="text" [formControl]="firstName" placeholder="Username"> 
+        <button class="submit-btn" (click)="fetchHatLogin()">
+          Login with
+          <img src="../../assets/haticon.png" />
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
