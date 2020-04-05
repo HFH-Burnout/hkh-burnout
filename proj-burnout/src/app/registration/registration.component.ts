@@ -16,8 +16,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   submitTypeform(): void {
-    this.typeFormService.getTypeFormData()
-      .subscribe(data => console.log(data, 'submitted form'))
+    console.log('submit');
   
   }
 

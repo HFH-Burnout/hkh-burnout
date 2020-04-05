@@ -7,6 +7,7 @@ import * as typeformEmbed from '@typeform/embed';
   templateUrl: './daily-survey.component.html',
   styleUrls: ['./daily-survey.component.scss']
 })
+
 export class DailySurveyComponent implements OnInit {
 
   constructor(private typeFormService: TypeFormService) { }
