@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
     };
     console.log(this.profileForm);
     const hat = new HatClient(config);
-    const hatDomain = `${this.profileForm}.hubat.net`;
+    console.warn(this.profileForm.value);
+    const hatDomain = `${this.profileForm.controls['firstName'].value}.hubat.net`;
     console.log(hatDomain, 'hatDomain');
     console.log(hat);
     const url = hat.auth().generateHatLoginUrl(hatDomain, this.appId, this.redirect, this.fallback);    
