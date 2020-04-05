@@ -122,7 +122,7 @@ WB-7: Do you feel burnt out because of your work?
 Client-Related Burnout (CB)
 CB-1: Do you find it hard to work with clients?
 CB-2: Does it drain your energy to work with clients?
-CB-3: Do you find it fristrating to work with clients?
+CB-3: Do you find it frustrating to work with clients?
 CB-4: Do you feel that you give more than you get back when you work with clients?
 CB-5: Are you tired of working with clients?
 CB-6: Do you sometimes wonder how long you will be able to continue working with clients?

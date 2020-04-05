@@ -25,16 +25,10 @@ export class LoginComponent implements OnInit {
     window.location.href =  '/profile'
   }
 
-  fetchHatLogin() {
-    const config = {
-      token: "",
-      apiVersion: 'v2.6',
-      secure: true,
-      onTokenChange: (newToken) => this.storeNewToken(newToken)
-    };
-    const hat = new HatClient(config);
-    const hatDomain = `${this.firstName.value}.hubat.net`;;
-    const url = hat.auth().generateHatLoginUrl(hatDomain, this.appId, this.redirect, this.fallback);
+  fetchLoginUrl() {
+    var successURL = 'http://127.0.0.1:4200/register'
+    var failURL = 'http://127.0.0.1:4200/whoops'
+    var url = this.hatService.fetchHatLogin(`${this.firstName.value}`, successURL, failURL);
     if (url) {
       window.location.href = `https://${url}`;
     }

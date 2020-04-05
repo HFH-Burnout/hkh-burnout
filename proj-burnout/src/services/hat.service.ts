@@ -7,8 +7,8 @@ import { HatClient } from "@dataswift/hat-js";
 export class HatService {
   appId = 'pb-1-dev';
   namespace = 'project-burnout'
-  redirect = 'http://127.0.0.1:4200/profile'; //these are testing values
-  fallback = 'http://127.0.0.1:4200/whoops'; //please change them
+  // redirect = 'http://127.0.0.1:4200/profile'; //these are testing values
+  // fallback = 'http://127.0.0.1:4200/whoops'; //please change them
   token = ""
   hat;
   config;
@@ -27,13 +27,13 @@ export class HatService {
     localStorage.setItem('hatToken', newToken);
   }
 
-  fetchHatLogin(username) {
+  fetchHatLogin(username, success, failure) {
     // console.log(this.profileForm);
     // console.warn(this.profileForm.value);
     const hatDomain = `${username}.hubat.net`;
     console.log(hatDomain, 'hatDomain');
     console.log(this.hat);
-    const url = this.hat.auth().generateHatLoginUrl(hatDomain, this.appId, this.redirect, this.fallback);
+    const url = this.hat.auth().generateHatLoginUrl(hatDomain, this.appId, success, failure);
     console.log(url, 'url');
     return url;
   }
